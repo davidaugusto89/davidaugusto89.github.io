@@ -103,8 +103,11 @@ svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 .avatar__img + .avatar__fallback { display: none; }
 .avatar__fallback {
   display: grid; place-items: center;
-  font: 700 2.2rem var(--mono);
-  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+  color: var(--cyan);
+}
+.avatar__fallback svg {
+  width: 54%; height: 54%; fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
 }
 .avatar__status {
   position: absolute; z-index: 2; right: 6px; bottom: 6px;
