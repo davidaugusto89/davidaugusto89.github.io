@@ -85,7 +85,7 @@ svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
 /* ---------- Avatar ---------- */
 .avatar {
-  position: relative; width: 140px; height: 140px; margin: 0 auto 18px;
+  position: relative; width: 160px; height: 160px; margin: 0 auto 18px;
   display: grid; place-items: center;
 }
 .avatar__ring {
