@@ -1,4 +1,4 @@
-const CACHE = 'dh-card-v1';
+const CACHE = 'dh-card-v2';
 
 const ASSETS = [
   './',
@@ -6,8 +6,14 @@ const ASSETS = [
   './manifest.webmanifest',
   './assets/css/style.css',
   './assets/js/app.js',
+  './favicon.ico',
+  './assets/icons/ti-icon.svg',
+  './assets/icons/favicon-32.png',
+  './assets/icons/favicon-48.png',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
+  './assets/icons/icon-maskable-192.png',
+  './assets/icons/icon-maskable-512.png',
   './assets/icons/apple-touch-icon.png',
 ];
 
