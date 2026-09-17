@@ -1,4 +1,4 @@
-const CACHE = 'dh-card-v2';
+const CACHE = 'dh-card-v3';
 
 const ASSETS = [
   './',

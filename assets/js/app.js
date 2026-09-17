@@ -12,7 +12,7 @@
     linkedin: 'https://www.linkedin.com/in/david-augusto-keller-haddad/',
   };
 
-  // URL canônica do cartão (sem query/hash) — usada no QR, NFC, share e vCard
+  // URL canônica do cartão (sem query/hash) — usada no QR, share e vCard
   const PAGE_URL = location.origin + location.pathname.replace(/index\.html$/, '');
 
   const $ = (sel) => document.querySelector(sel);
@@ -105,33 +105,6 @@
     $('#qr-modal').showModal();
   }
 
-  /* ---------- NFC (Web NFC — Chrome Android) ---------- */
-  function setupNfc() {
-    if (!('NDEFReader' in window)) return;
-    const btn = $('#btn-nfc');
-    btn.hidden = false;
-
-    btn.addEventListener('click', async () => {
-      const ctrl = new AbortController();
-      btn.classList.add('is-busy');
-      toast('Aproxime a tag NFC do celular…', 15000);
-      const timeout = setTimeout(() => ctrl.abort(), 15000);
-      try {
-        const ndef = new NDEFReader();
-        await ndef.write({ records: [{ recordType: 'url', data: PAGE_URL }] }, { signal: ctrl.signal });
-        toast('Tag NFC gravada com sucesso ✓');
-      } catch (e) {
-        const msg = e.name === 'AbortError' ? 'Tempo esgotado — tente novamente'
-          : e.name === 'NotAllowedError' ? 'Permissão de NFC negada'
-          : 'Falha ao gravar a tag NFC';
-        toast(msg);
-      } finally {
-        clearTimeout(timeout);
-        btn.classList.remove('is-busy');
-      }
-    });
-  }
-
   /* ---------- PWA ---------- */
   function setupPwa() {
     if ('serviceWorker' in navigator) {
@@ -181,7 +154,6 @@
   $('#qr-modal').addEventListener('click', (e) => { if (e.target.id === 'qr-modal') e.target.close(); });
 
   typeLoop();
-  setupNfc();
   setupPwa();
   setupTilt();
 })();
