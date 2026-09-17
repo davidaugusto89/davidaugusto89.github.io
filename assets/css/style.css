@@ -85,7 +85,9 @@ svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
 
 /* ---------- Avatar ---------- */
 .avatar {
-  position: relative; width: 160px; height: 160px; margin: 0 auto 18px;
+  /* 250px sempre que couber; encolhe junto com a tela em celulares estreitos */
+  --avatar-size: min(250px, 68vw);
+  position: relative; width: var(--avatar-size); height: var(--avatar-size); margin: 0 auto 18px;
   display: grid; place-items: center;
 }
 .avatar__ring {
@@ -110,8 +112,8 @@ svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
   stroke-linecap: round; stroke-linejoin: round;
 }
 .avatar__status {
-  position: absolute; z-index: 2; right: 6px; bottom: 6px;
-  width: 16px; height: 16px; border-radius: 50%;
+  position: absolute; z-index: 2; right: 9px; bottom: 9px;
+  width: 22px; height: 22px; border-radius: 50%;
   background: var(--green); border: 3px solid var(--bg);
   box-shadow: 0 0 0 0 rgba(52,211,153,.6);
   animation: pulse 2.4s infinite;
